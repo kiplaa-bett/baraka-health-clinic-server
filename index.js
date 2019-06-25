@@ -34,7 +34,17 @@ app.get("/api/docter", (req, res) => {
     });
 });
 
-//post
+//get patient
+app.get("/api/patient", (req, res) => {
+    pool.query("SELECT * FROM patient", (error, rows) => {
+        if (error) {
+           return res.status(500).json({ error });
+        }
+
+        res.json(rows);
+    });
+});
+
 //app.post("/api/baraka/:Docter_id", (req, res)=> {
     //const { Docter_Name } = req.body;
     
