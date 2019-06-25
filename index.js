@@ -12,8 +12,8 @@ const pool = mysql.createPool({
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/api/baraka_health_clinic", (req, res) => {
-    pool.query("SELECT * FROM health_clinic", (error, rows) => {
+app.get("/api/baraka", (req, res) => {
+    pool.query("SELECT * FROM docter", (error, rows) => {
         if (error) {
             return res.status(500).json({ error });
         }
@@ -22,15 +22,15 @@ app.get("/api/baraka_health_clinic", (req, res) => {
     });
 });
 
-app.get("/api/baraka", (req, res) => {
-    pool.query("SELECT * FROM docter", (error, rows) => {
-        if (error) {
-           return res.status(500).json({ error });
-        }
+//app.get("/api/baraka_health_clinic", (req, res) => {
+    //pool.query("SELECT * FROM docter", (error, rows) => {
+        //if (error) {
+        //   return res.status(500).json({ error });
+       // }
 
-        res.json(rows);
-    });
-});
+       // res.json(rows);
+   // });
+//});
 
 //post
 app.post("/api/baraka/:Docter_id", (req, res)=> {
@@ -52,13 +52,13 @@ app.post("/api/baraka/:Docter_id", (req, res)=> {
       });
 });
 
-app.post("/api/baraka_health_clinic", (req, res) =>{
-    const { name } = req.body;
+//app.post("/api/baraka_health_clinic", (req, res) =>{
+    //const { name } = req.body;
 
-     if (name ==="") {
-       return res.status(400).json({error: "invalid payload"});
-    }
-    console.log(body.baraka_health_clinic);
+     //if (name ==="") {
+      // return res.status(400).json({error: "invalid payload"});
+   // }
+    //console.log(body.baraka_health_clinic);
    
     //insert Hospital_Name
 });
