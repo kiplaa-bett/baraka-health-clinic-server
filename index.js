@@ -27,7 +27,7 @@ app.get("/api/baraka", (req, res) => {
 app.get("/api/docter", (req, res) => {
     pool.query("SELECT * FROM docter", (error, rows) => {
         if (error) {
-           return res.status(500).json({ error });
+            return res.status(500).json({ error });
         }
 
         res.json(rows);
@@ -38,43 +38,44 @@ app.get("/api/docter", (req, res) => {
 app.get("/api/patient", (req, res) => {
     pool.query("SELECT * FROM patient", (error, rows) => {
         if (error) {
-           return res.status(500).json({ error });
+            return res.status(500).json({ error });
         }
 
         res.json(rows);
     });
 });
 
-//app.post("/api/baraka/:Docter_id", (req, res)=> {
-    //const { Docter_Name } = req.body;
-    
-    //if (!Docter_Name) {
-       // return res.status(400).json({error: "invalid payload"});
-    //}
+//post
+app.post("/api/docter/:Docter_id", (req, res) => {
+    const { Docter_id } = req.body;
 
-   // pool.query(
-        //"INSERT INTO docter (Docter_Name) values (?)",
-        //[docter.Docter_Name],
-        //(error, results) => {
-       // if (error) {
-        //    return res.status(500).json({ error });
-        //}
+    if (!Docter_id) {
+        return res.status(400).json({ error: "invalid payload" });
+    }
 
-       // res.json(results.insertId);
-     // });
-//});
+    pool.query(
+        "INSERT INTO docter (Docter_id) values (?)",
+        [docter.Docter_Name],
+        (error, results) => {
+            if (error) {
+                return res.status(500).json({ error });
+            }
+
+            res.json(results.insertId);
+        });
+});
 
 //app.post("/api/baraka_health_clinic", (req, res) =>{
-    //const { name } = req.body;
+//const { name } = req.body;
 
-     //if (name ==="") {
-      // return res.status(400).json({error: "invalid payload"});
-   // }
-    //console.log(body.baraka_health_clinic);
-   
-    //insert Hospital_Name
+//if (name ==="") {
+// return res.status(400).json({error: "invalid payload"});
+// }
+//console.log(body.baraka_health_clinic);
+
+//insert Hospital_Name
 //});
 
 app.listen(9000, function () {
-    console.log("Bett live server");
+    console.log("Bett server is ready!");
 });
