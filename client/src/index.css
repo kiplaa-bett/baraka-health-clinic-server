@@ -5,10 +5,60 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: aqua;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.navbar{
+  z-index: 100vh;
+}
+
+.hlthclnc-title {
+  background-color: #5af5ce;
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  justify-content: space-between;
+  align-items: right;
+  display: flex;
+}
+
+.hlthclnc-title h1{
+  color: blue;
+  font-family: algerian;
+}
+
+.hlthclnc-title h2{
+color: rgb(9, 9, 145);
+font-family: lucida handwriting;
+}
+
+.hlthclnc-nav{
+  
+
+}
+.hlthclnc-nav li{
+  width: 25%;
+  margin-top: 15vh;
+  margin-left: 70vh;
+  text-align: center;
+  justify-content: space-between;
+  align-items: right;
+  position: fixed;
+  display: flex;
+  list-style:  none;
+  padding: none;
+}
+
+.hlthclnc-nav a{
+  border-radius: 5px;
+  color: #f117ba;
+}
+
+.hlthclnc-nav a:hover{
+  background-color: #f117ba;
+  color: rgb(243, 244, 245);
 }

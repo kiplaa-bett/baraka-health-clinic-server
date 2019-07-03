@@ -3,12 +3,22 @@ import React from "react"
 function NavBar() {
     return (
         <div className="hlthclnc-container">
-            <nav className="hlthclnc-nav">
-                <span className="hlthclnc-title">Baraka Health Clinic</span>
-                <a href="/">Docter</a>
-                <a href="/cinemas">Patient</a>
-                <a href="/admin">Admin</a>
-            </nav>
+            <div className="navbar">
+                <nav className="hlthclnc-title">
+                    <h1>Baraka Health Clinic</h1>
+                    <h2>"We Treat Jesus Heals"</h2>
+                </nav>
+                <nav className="hlthclnc-nav">
+                    <ul>
+                        <li>
+                            <a href="/Home">Home</a>
+                            <a href="/Docter">Docter</a>
+                            <a href="/Patient">Patient</a>
+                            <a href="/Admin">Admin</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     );
 }
