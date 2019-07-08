@@ -108,6 +108,27 @@ app.put("api/docter", (req, res) => {
     );
 });
 
+//update Patient
+app.put("api/patient", (req, res) => {
+    const {Patient_Name, Gender, Age, Docter_id} = req.body;
+
+    if (!Patient_Name || !Gender || !Age || !Docter_id) {
+        return res.status(400).json({ error: "Invalid payload" });
+    }
+
+    pool.query(
+        "UPDATE patient SET (Patient_Name, Gender, Age, Docter_id) WHERE id=? VALUES(?,?,?,?)",
+        [Patient_Name, Gender, Age, Docter_id, req.params.id],
+        (error, results) => {
+            if (error) {
+                return res.status(500).json({ error });
+            }
+
+            res.json(results.changeRows);
+        }
+    );
+});
+
 app.listen(9001, function () {
     console.log("Bett server is ready!");
 });
