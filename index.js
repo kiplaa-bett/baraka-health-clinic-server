@@ -68,24 +68,46 @@ app.post("/api/docter", (req, res) => {
 
 //post patient
 app.post("/api/patient", (req, res) => {
-      const {Patient_Name, Gender, Age, Docter_id} = req.body;
+    const { Patient_Name, Gender, Age, Docter_id } = req.body;
 
-      if (!Patient_Name || !Gender || !Age || !Docter_id) {
-          return res.status(400).json({ error: "invalid payload" });
-      }
+    if (!Patient_Name || !Gender || !Age || !Docter_id) {
+        return res.status(400).json({ error: "invalid payload" });
+    }
 
-       pool.query(
-           "INSERT INTO patient(Patient_Name, Gender, Age, Docter_id) VALUES(?,?,?,?)",
-          [Patient_Name, Gender, Age, Docter_id],
-           (error, results) => {
-               if (error) {
-                   return res.status(500).json({error});
-               }
+    pool.query(
+        "INSERT INTO patient(Patient_Name, Gender, Age, Docter_id) VALUES(?,?,?,?)",
+        [Patient_Name, Gender, Age, Docter_id],
+        (error, results) => {
+            if (error) {
+                return res.status(500).json({ error });
+            }
 
-               res.json(results.insertId);
-           }
-       );
- });
+            res.json(results.insertId);
+        }
+    );
+});
+
+//update docter
+app.put("api/docter", (req, res) => {
+    const { Docter_Name, Department, Hospital_id } = req.body;
+
+    if (!Docter_Name || !Department || !Hospital_id) {
+        return res.status(400).json({ error: "Invalid payload" });
+    }
+
+    pool.query(
+        "UPDATE docter SET (Docter_Name, Department, Hospital_id) WHERE id=? VALUES(?,?,?)",
+        [Docter_Name, Department, Hospital_id, req.params.id],
+        (error, results) => {
+            if (error) {
+                return res.status(500).json({ error });
+            }
+
+            res.json(results.changeRows);
+        }
+    );
+});
+
 app.listen(9001, function () {
     console.log("Bett server is ready!");
 });
