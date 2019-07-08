@@ -45,37 +45,47 @@ app.get("/api/patient", (req, res) => {
     });
 });
 
-//post
-app.post("/api/docter/:Docter_id", (req, res) => {
-    const { Docter_id } = req.body;
+//post docter
+app.post("/api/docter", (req, res) => {
+    const { Docter_Name, Department, Hospital_id } = req.body;
 
-    if (!Docter_id) {
+    if (!Docter_Name || !Department || !Hospital_id) {
         return res.status(400).json({ error: "invalid payload" });
     }
 
     pool.query(
-        "INSERT INTO docter (Docter_id) values (?)",
-        [docter.Docter_Name],
+        "INSERT INTO docter(Docter_Name, Department, Hospital_id) VALUES(?,?,?)",
+        [Docter_Name, Department, Hospital_id],
         (error, results) => {
             if (error) {
                 return res.status(500).json({ error });
             }
 
             res.json(results.insertId);
-        });
+        }
+    );
 });
 
-//app.post("/api/baraka_health_clinic", (req, res) =>{
-//const { name } = req.body;
+//post patient
+app.post("/api/patient", (req, res) => {
+      const {Patient_Name, Gender, Age, Docter_id} = req.body;
 
-//if (name ==="") {
-// return res.status(400).json({error: "invalid payload"});
-// }
-//console.log(body.baraka_health_clinic);
+      if (!Patient_Name || !Gender || !Age || !Docter_id) {
+          return res.status(400).json({ error: "invalid payload" });
+      }
 
-//insert Hospital_Name
-//});
+       pool.query(
+           "INSERT INTO patient(Patient_Name, Gender, Age, Docter_id) VALUES(?,?,?,?)",
+          [Patient_Name, Gender, Age, Docter_id],
+           (error, results) => {
+               if (error) {
+                   return res.status(500).json({error});
+               }
 
-app.listen(9000, function () {
+               res.json(results.insertId);
+           }
+       );
+ });
+app.listen(9001, function () {
     console.log("Bett server is ready!");
 });
