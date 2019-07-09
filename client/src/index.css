@@ -29,16 +29,23 @@ code {
 .hlthclnc-title h1{
   color: blue;
   font-family: algerian;
+  padding-left: 2rem;
 }
 
 .hlthclnc-title h2{
 color: rgb(9, 9, 145);
 font-family: lucida handwriting;
+padding-right: 2rem;
+}
+
+.hlthclnc-title span{
+  color: #f117ba;
+  font-size: 3rem;
 }
 
 .hlthclnc-nav li{
   width: 25%;
-  margin-top: 15vh;
+  margin-top: 25vh;
   margin-left: 70vh;
   text-align: center;
   justify-content: space-between;

@@ -5,8 +5,8 @@ function NavBar() {
         <div className="hlthclnc-container">
             <div className="navbar">
                 <nav className="hlthclnc-title">
-                    <h1>Baraka Health Clinic</h1>
-                    <h2>We Treat Jesus Heals</h2>
+                    <h1><span>B</span>araka <span>H</span>ealth <span>C</span>linic</h1>
+                    <h2><span>W</span>e Treat <span>J</span>esus Heals</h2>
                 </nav>
                 <nav className="hlthclnc-nav">
                     <ul>
