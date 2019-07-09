@@ -88,43 +88,71 @@ app.post("/api/patient", (req, res) => {
 });
 
 //update docter
-app.put("api/docter", (req, res) => {
-    const { Docter_Name, Department, Hospital_id } = req.body;
+app.put("/api/docter/:Docter_id", (req, res) => {
+     const { Docter_Name, Department, Hospital_id } = req.body;
 
-    if (!Docter_Name || !Department || !Hospital_id) {
-        return res.status(400).json({ error: "Invalid payload" });
-    }
+     if (!Docter_Name || !Department || !Hospital_id) {
+         return res.status(400).json({ error: "Invalid payload" });
+     }
 
+     pool.query(
+         "UPDATE docter SET Docter_Name=?, Department=?, Hospital_id=? WHERE Docter_id = ?",
+         [Docter_Name, Department, Hospital_id, req.params.Docter_id],
+         (error, results) => {
+             if (error) {
+                 return res.status(500).json({ error });
+             }
+
+             res.json(results.changeRows);
+         }
+     );
+ });
+
+//update Patient
+ app.put("/api/patient/:Patient_id", (req, res) => {
+     const {Patient_Name, Gender, Age, Docter_id} = req.body;
+
+     if (!Patient_Name || !Gender || !Age || !Docter_id) {
+         return res.status(400).json({ error: "Invalid payload" });
+     }
+
+     pool.query(
+         "UPDATE patient SET Patient_Name=?, Gender=?, Age=?, Docter_id=? WHERE Patient_id=?",
+         [Patient_Name, Gender, Age, Docter_id, req.params.Patient_id],
+         (error, results) => {
+             if (error) {
+                 return res.status(500).json({ error });
+             }
+
+             res.json(results.changeRows);
+         }
+     );
+ });
+
+// Delete docter
+app.delete("/api/docter/:Docter_id", (req, res) => {
     pool.query(
-        "UPDATE docter SET (Docter_Name, Department, Hospital_id) WHERE id=? VALUES(?,?,?)",
-        [Docter_Name, Department, Hospital_id, req.params.id],
+        "DELETE FROM docter WHERE Docter_id=?",
+        [req.params.Docter_id],
         (error, results) => {
             if (error) {
                 return res.status(500).json({ error });
             }
-
-            res.json(results.changeRows);
+            res.json(results.affectedRows);
         }
     );
 });
 
-//update Patient
-app.put("api/patient", (req, res) => {
-    const {Patient_Name, Gender, Age, Docter_id} = req.body;
-
-    if (!Patient_Name || !Gender || !Age || !Docter_id) {
-        return res.status(400).json({ error: "Invalid payload" });
-    }
-
+// Delete patient
+app.delete("/api/patient/:Patient_id", (req, res) => {
     pool.query(
-        "UPDATE patient SET (Patient_Name, Gender, Age, Docter_id) WHERE id=? VALUES(?,?,?,?)",
-        [Patient_Name, Gender, Age, Docter_id, req.params.id],
+        "DELETE FROM patient WHERE Patient_id = ?",
+        [req.params.Patient_id],
         (error, results) => {
             if (error) {
                 return res.status(500).json({ error });
             }
-
-            res.json(results.changeRows);
+            res.json(results.affectedRows);
         }
     );
 });
