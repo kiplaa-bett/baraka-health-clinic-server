@@ -1,0 +1,53 @@
+.navbar{
+    z-index: 100vh;
+  }
+  
+  .hlthclnc-title {
+    background-color: #5af5ce;
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    justify-content: space-between;
+    align-items: right;
+    display: flex;
+  }
+  
+  .hlthclnc-title h1{
+    color: blue;
+    font-family: algerian;
+    padding-left: 2rem;
+  }
+  
+  .hlthclnc-title h2{
+  color: rgb(9, 9, 145);
+  font-family: lucida handwriting;
+  padding-right: 2rem;
+  }
+  
+  .hlthclnc-title span{
+    color: #f117ba;
+    font-size: 3rem;
+  }
+  
+  .hlthclnc-nav li{
+    width: 25%;
+    margin-top: 25vh;
+    margin-left: 70vh;
+    text-align: center;
+    justify-content: space-between;
+    align-items: right;
+    position: fixed;
+    display: flex;
+    list-style:  none;
+    padding: none;
+  }
+  
+  .hlthclnc-nav a{
+    border-radius: 5px;
+    color: #f117ba;
+  }
+  
+  .hlthclnc-nav a:hover{
+    background-color: #f117ba;
+    color: rgb(243, 244, 245);
+  }

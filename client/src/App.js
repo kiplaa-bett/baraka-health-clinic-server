@@ -9,6 +9,7 @@ function App() {
       <header className="hlthclnc-header">
 
         <NavBar />
+        <Container />
 
       </header>
       <main className="hlthclnc-main">
