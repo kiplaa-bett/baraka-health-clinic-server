@@ -3,8 +3,13 @@ import './App.css';
 
 function Container() {
     return (
-        <div className="Container">
-            <p>hello</p>
+        <div className="home-container">
+            <div className="cont">
+                <nav className="cont-title">
+                    <h1>Baraka</h1>
+                    <h2>Clinic</h2>
+                </nav>
+            </div>
         </div>
     );
 }
