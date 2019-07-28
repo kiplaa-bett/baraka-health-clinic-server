@@ -54,4 +54,32 @@
 
   .home-container{
     padding-top: 120px;
+    height: 59vh;
+  }
+
+  .cont-title{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-left: 70px;
+    padding-right: 70px;
+    color: blue;
+    text-align: center;
+  }
+
+  .footer{
+    text-align: center;
+    background: gray;
+    height: 3rem;
+    color: white;
+    /* margin-bottom: 0px;
+    padding-bottom: 0px; */
+  }
+
+  .footer p{
+    padding-top: 1rem;
+  }
+
+  .footer span{
+    color: blue;
   }
