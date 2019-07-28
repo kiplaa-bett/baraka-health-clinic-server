@@ -6,8 +6,14 @@ function Container() {
         <div className="home-container">
             <div className="cont">
                 <nav className="cont-title">
-                    <h1>Baraka</h1>
-                    <h2>Clinic</h2>
+                    <div className="dp">
+                        <h1>Docter Page</h1>
+                        <img src="images/slide2.jpg" />
+                    </div>
+                    <div className="pp">
+                        <h2>Patient Page</h2>
+                        <img src="images/slide3.jpg" />
+                    </div>
                 </nav>
             </div>
         </div>
