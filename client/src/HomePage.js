@@ -1,18 +1,19 @@
 import React from "react"
+// import axios from "axios";
 import './App.css';
 
-function Container() {
+function HomePage() {
     return (
         <div className="home-container">
             <div className="cont">
                 <nav className="cont-title">
                     <div className="dp">
                         <h1>Docter Page</h1>
-                        <img src="images/slide2.jpg" />
+                        {/* <img src="images/slide2.jpg" /> */}
                     </div>
                     <div className="pp">
                         <h2>Patient Page</h2>
-                        <img src="images/slide3.jpg" />
+                        {/* <img src="images/slide3.jpg" /> */}
                     </div>
                 </nav>
             </div>
@@ -20,4 +21,4 @@ function Container() {
     );
 }
 
-export default Container;
+export default HomePage;

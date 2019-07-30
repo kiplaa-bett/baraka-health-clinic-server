@@ -54,7 +54,7 @@
 
   .home-container{
     padding-top: 120px;
-    height: 59vh;
+    /* height: 59vh; */
   }
 
   .cont-title{
@@ -82,4 +82,8 @@
 
   .footer span{
     color: blue;
+  }
+
+  .dct-pg{
+    padding-top: 5vh;
   }

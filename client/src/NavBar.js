@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "@reach/router";
 import './App.css';
 
 function NavBar() {
@@ -12,10 +13,10 @@ function NavBar() {
                 <nav className="hlthclnc-nav">
                     <ul>
                         <li>
-                            <a href="/Home">Home</a>
-                            <a href="/Docter">Docter</a>
-                            <a href="/Patient">Patient</a>
-                            <a href="/Admin">Admin</a>
+                            <Link to="/">Home</Link>
+                            <Link to="/docter">Docter</Link>
+                            <Link to="/patient">Patient</Link>
+                            <Link to="/admin">Admin</Link>
                         </li>
                     </ul>
                 </nav>
