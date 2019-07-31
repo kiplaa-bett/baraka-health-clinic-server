@@ -15,9 +15,6 @@ function App() {
       <header className="hlthclnc-header">
         <NavBar />
       </header>
-      {/* <body className="hlthclnc-body">
-        
-      </body> */}
 
       <main className="hlthclnc-main">
         <Router>
@@ -28,9 +25,11 @@ function App() {
           <NotFound default />
         </Router>
       </main>
+
       <footer className="hlthclnc-footer">
         <Footer />
       </footer>
+
     </div>
   );
 }

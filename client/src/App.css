@@ -54,17 +54,22 @@
 
   .home-container{
     padding-top: 120px;
-    /* height: 59vh; */
+    background-color: #e5f368;
   }
 
   .cont-title{
     display: flex;
     justify-content: space-between;
     padding-top: 10px;
-    padding-left: 70px;
-    padding-right: 70px;
+    width: 50%;
+    margin: auto;
     color: blue;
     text-align: center;
+  }
+
+  .dp :hover,.pp :hover{
+    color: #f117ba;
+    background-color: aqua;
   }
 
   .footer{
@@ -72,8 +77,6 @@
     background: gray;
     height: 3rem;
     color: white;
-    /* margin-bottom: 0px;
-    padding-bottom: 0px; */
   }
 
   .footer p{
