@@ -157,6 +157,6 @@ app.delete("/api/patient/:Patient_id", (req, res) => {
     );
 });
 
-app.listen(9001, function () {
+app.listen(9000, function () {
     console.log("Bett server is ready!");
 });
