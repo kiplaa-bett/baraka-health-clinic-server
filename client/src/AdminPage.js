@@ -7,12 +7,16 @@ import PatientTable from "./PatientTable";
 function AdminPage() {
     return (
         <div className="home-container">
-            <h1>Docter</h1>
-            <DocterForm />
-            <DocterTable />
-            <h1>Patient</h1>
-            <PatientForm />
-            <PatientTable />
+            <header className="adm-cont">
+                <h2>Docter Page</h2>
+                <DocterForm />
+                <DocterTable />
+            </header>
+            <main className="adm-mn">
+                <h2>Patient Page</h2>
+                <PatientForm />
+                <PatientTable />
+            </main>
         </div>
     );
 }
